@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy – CutMetric</title>
+<style>body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;max-width:850px;margin:auto;padding:32px 20px 64px;line-height:1.65}h2{margin-top:2em}.note{border:1px solid #888;border-radius:10px;padding:14px;margin-top:30px}</style>
+</head><body>
+<h1>Privacy Policy for CutMetric</h1><p>Last updated: August 31, 2026</p>
+
+<h2>1. Data Controller</h2>
+<p>Ahmed Abdelbagi<br>Carl-Severing-Straße 48<br>28329 Bremen<br>Germany<br>Email: <a href="mailto:cutmetric1@gmail.com">cutmetric1@gmail.com</a></p>
+
+<h2>2. Scope</h2>
+<p>This Privacy Policy describes how personal data is processed when using CutMetric. CutMetric provides features including AI-assisted body-fat percentage (BFP) estimation, progress tracking, training and nutrition features, an AI coach, and CutMetric PRO features.</p>
+
+<h2>3. Data We Process</h2>
+<p>Depending on the features used, CutMetric may process profile information such as name/profile name, age, sex, height and weight; body and fitness data such as estimated body-fat percentage/range, lean mass, fat mass, goals and progress; training information; nutrition information; photos used for body-fat analysis and progress photos; AI coach messages; a CutMetric installation ID; scan and chat usage counters; and information relating to CutMetric PRO subscriptions. Technical connection information such as IP addresses and server/error logs may also arise when the backend is used.</p>
+
+<h2>4. Profile, Fitness, Training and Nutrition Data</h2>
+<p>CutMetric processes information provided by the user and values calculated within the app in order to provide requested features. A significant portion of this information is stored locally on the device or within the WebView's local storage. Depending on the feature, selected profile and fitness information may also be sent to the CutMetric backend and, for AI features, to Google Gemini.</p>
+
+<h2>5. Body-Fat Analysis and Photos</h2>
+<p>For body-fat analysis, users may provide front, side and back photos. Images are processed/normalized by the app and transmitted as JPEG files over HTTPS to the CutMetric backend.</p>
+<p>According to the reviewed technical implementation, the backend processes uploaded analysis images in memory using <code>multer.memoryStorage()</code>. No permanent CutMetric file-upload storage for these analysis photos was identified in the reviewed application code. To perform the requested AI analysis, the images are subsequently transmitted to the Google Gemini API as inline image data.</p>
+<p>No use of the Gemini Files API or a separate permanent upload store for these body-fat analysis images was identified in the reviewed CutMetric code. This statement concerns CutMetric's own implementation. Processing performed by the external AI provider is additionally subject to that provider's applicable terms and privacy practices.</p>
+
+<h2>6. Progress Photos</h2>
+<p>According to the reviewed implementation, progress photos are stored locally in IndexedDB (<code>cutmetric_storage</code>, store <code>progressPhotos</code>). Older locally stored Base64/data-URL images may be migrated to this storage. No regular server-side storage of progress photos was identified in the reviewed CutMetric code.</p>
+
+<h2>7. Camera and Temporary Files</h2>
+<p>On Android, the camera component may create temporary image files in the device cache or external cache using a FileProvider. The reviewed code did not identify an explicit deletion of this temporary file immediately after it is returned to the WebView. Cache files are also subject to operating-system storage management. The reviewed Android configuration did not identify general media-library read permission, location permission or microphone permission.</p>
+
+<h2>8. AI Coach and Google Gemini</h2>
+<p>CutMetric uses Google Gemini for AI features. When the AI coach is used, the user's message and relevant profile/fitness information are transmitted to the CutMetric backend and passed to Gemini to generate a response. According to the reviewed implementation, up to ten previous chat messages may be used as conversation context.</p>
+<p>For body-fat analysis, the supplied analysis photos and information required for the analysis are sent to Gemini. The reviewed code uses <code>gemini-2.5-flash</code> as its default model, although the model may be changed through server-side configuration. The Gemini API key is managed on the backend and is not exposed in the frontend.</p>
+
+<h2>9. Backend and Railway</h2>
+<p>The CutMetric backend is hosted using Railway. The backend handles functions including body-fat/AI requests, usage limits and PRO/subscription management. Technical connection information, including IP addresses, may be processed by the server/hosting infrastructure when network requests are made. The exact retention period of possible Railway server logs cannot be determined from the CutMetric application code.</p>
+
+<h2>10. Server-Side Operational and Subscription Data</h2>
+<p>The backend uses PostgreSQL. According to the reviewed implementation, stored information may include an installation ID, role and timestamps, PRO/entitlement status, scan and chat usage counters, a hash of a Google Play purchase token, and billing events. These data are used in particular to provide the service, enforce usage or abuse controls, and manage paid features.</p>
+
+<h2>11. Google Play Billing / CutMetric PRO</h2>
+<p>When a CutMetric PRO subscription is purchased through Google Play, payment processing is handled by Google Play. CutMetric does not process full credit-card or bank-card details. Product/package information, purchase-token information and subscription status may be processed to verify and manage the subscription. According to the reviewed implementation, the CutMetric backend stores a hash of the purchase token.</p>
+
+<h2>12. Google Fonts</h2>
+<p>The CutMetric web interface may load fonts from Google Fonts. If fonts are requested directly from Google servers, technically necessary connection information such as the IP address may be transmitted to Google. If fonts are fully hosted locally in a particular app version, such an external request does not occur.</p>
+
+<h2>13. Local Storage</h2>
+<p>CutMetric uses local storage to retain settings and app data on the device. According to the reviewed implementation, Local Storage may contain profile information, language, theme/display settings, nutrition and training settings, a local entitlement cache, chat history, profile state and the CutMetric installation ID. Progress photos are stored in IndexedDB. No explicit use of Session Storage or CutMetric's own cookies was identified in the reviewed code.</p>
+
+<h2>14. Purposes of Processing</h2>
+<p>Data are processed to provide the CutMetric features requested by users; perform body-fat estimates; display progress, training and nutrition information; generate AI coach responses; retain local settings and progress; enforce usage limits and technical security; verify and manage PRO entitlements and subscriptions; and operate and troubleshoot the service.</p>
+
+<h2>15. Recipients and Service Providers</h2>
+<ul>
+<li><strong>Google / Gemini API:</strong> AI-assisted body-fat analysis and AI coach; photos, chat text and relevant profile/fitness information may be transmitted.</li>
+<li><strong>Railway:</strong> hosting of the CutMetric backend and associated server/database infrastructure.</li>
+<li><strong>Google Play:</strong> provision and management of purchases and PRO subscriptions.</li>
+<li><strong>Google Fonts:</strong> possible delivery of fonts to the web interface.</li>
+</ul>
+
+<h2>16. Legal Bases</h2>
+<p>Where the GDPR applies, processing is carried out depending on the relevant feature, in particular where necessary to provide services requested by the user or perform the user relationship (Article 6(1)(b) GDPR), and where necessary for legitimate interests in securely and reliably providing the service (Article 6(1)(f) GDPR).</p>
+<p>Where information qualifies as special-category personal data under Article 9 GDPR and an additional legal basis is required, it will be processed only where the applicable legal requirements are met, including explicit consent where required.</p>
+
+<h2>17. International Data Transfers</h2>
+<p>When external service providers such as Google or Railway are used, personal data may be processed outside Germany or the European Economic Area. Where applicable, such transfers are subject to the applicable legal requirements and transfer mechanisms used by the relevant service provider.</p>
+
+<h2>18. Retention and Deletion</h2>
+<p>Locally stored data generally remain on the device until they are deleted using CutMetric's available functions, app data are reset, or—depending on the platform—the app or its local data are removed.</p>
+<p>According to the reviewed implementation, CutMetric provides a local data-deletion function. However, the technical review did not conclusively establish that this local function also deletes every server-side record stored in PostgreSQL. Therefore, complete server-side deletion solely by performing a local reset is not promised.</p>
+<p>Requests concerning deletion or other privacy matters may be sent to <a href="mailto:cutmetric1@gmail.com">cutmetric1@gmail.com</a>. Statutory retention requirements may prevent immediate deletion of particular records. Data processed by external service providers are additionally subject to their applicable retention and deletion practices.</p>
+
+<h2>19. Security</h2>
+<p>According to the reviewed implementation, communication with the CutMetric backend takes place over HTTPS. Gemini API credentials are managed server-side rather than exposed in the frontend. Backend protections identified in the reviewed implementation include rate limiting, CORS configuration, Helmet, upload limits and restrictions on image uploads.</p>
+
+<h2>20. Advertising and Tracking</h2>
+<p>No integrations for AdMob, Meta/Facebook advertising, AppsFlyer, Adjust or an Advertising ID were identified in the reviewed CutMetric code. No location, contacts, microphone, Health Connect or Activity Recognition permissions were identified. This Privacy Policy will be updated if relevant functionality is introduced in the future.</p>
+
+<h2>21. Your Rights</h2>
+<p>Where the GDPR applies and subject to the statutory requirements, data subjects may have rights including access, rectification, erasure, restriction of processing, data portability and objection. Where processing is based on consent, consent may generally be withdrawn with effect for the future.</p>
+<p>Requests can be sent to <a href="mailto:cutmetric1@gmail.com">cutmetric1@gmail.com</a>. Data subjects may also have the right to lodge a complaint with a competent data-protection supervisory authority.</p>
+
+<h2>22. Changes to this Privacy Policy</h2>
+<p>This Privacy Policy may be updated when CutMetric changes, new features or service providers are introduced, or legal or technical changes make an update necessary. The current version will be made available through CutMetric's published privacy-policy page.</p>
+</body></html>
