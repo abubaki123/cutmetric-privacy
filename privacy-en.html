@@ -51,6 +51,9 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;background-imag
 <h2>10. Server-Side Operational and Subscription Data</h2>
 <p>The backend uses PostgreSQL. According to the reviewed implementation, stored information may include an installation ID, role and timestamps, PRO/entitlement status, scan and chat usage counters, a hash of a Google Play purchase token, and billing events. These data are used in particular to provide the service, enforce usage or abuse controls, and manage paid features.</p>
 
+<h2>10a. CutMetric Account and Firebase Authentication</h2>
+<p>When a CutMetric account is used, CutMetric may use Firebase Authentication for email/password sign-in and Google sign-in. This may involve processing the Firebase user ID, email address, email verification status, display name, sign-in provider and technical authentication data. The CutMetric backend verifies Firebase ID tokens server-side and stores account data, consent records and synchronized profile/settings data in PostgreSQL. Passwords are not stored in the CutMetric backend. This account feature does not cause body-fat analysis photos or progress photos to be permanently stored on the CutMetric backend.</p>
+
 <h2>11. Google Play Billing / CutMetric PRO</h2>
 <p>When a CutMetric PRO subscription is purchased through Google Play, payment processing is handled by Google Play. CutMetric does not process full credit-card or bank-card details. Product/package information, purchase-token information and subscription status may be processed to verify and manage the subscription. According to the reviewed implementation, the CutMetric backend stores a hash of the purchase token.</p>
 
@@ -66,6 +69,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;background-imag
 <h2>15. Recipients and Service Providers</h2>
 <ul>
 <li><strong>Google / Gemini API:</strong> AI-assisted body-fat analysis and AI coach; photos, chat text and relevant profile/fitness information may be transmitted.</li>
+<li><strong>Google / Firebase Authentication:</strong> account creation, sign-in, email verification and password reset.</li>
 <li><strong>Railway:</strong> hosting of the CutMetric backend and associated server/database infrastructure.</li>
 <li><strong>Google Play:</strong> provision and management of purchases and PRO subscriptions.</li>
 <li><strong>Google Fonts:</strong> possible delivery of fonts to the web interface.</li>
